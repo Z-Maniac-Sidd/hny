@@ -1,73 +1,135 @@
-@import url('https://fonts.googleapis.com/css2?family=Zeyada&display=swap');
+/* Google Font: Dancing Script */
+@import url('https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400;500;600;700&display=swap');
 
-
-
-
+/* ================= BODY ================= */
 body {
   height: 100vh;
+  margin: 0;
   display: flex;
   align-items: center;
   justify-content: center;
-
-  background-size: 1000px;
-  background-image: url("https://www.psdgraphics.com/wp-content/uploads/2022/01/white-math-paper-texture.jpg");
+  /* Updated background logic for better mobile view */
+  background-image: url("https://res.cloudinary.com/dg1pinjfp/image/upload/v1767129425/bg_wqyxln.png");
+  background-size: cover; 
   background-position: center center;
+  overflow: hidden;
 }
 
+/* ================= PAPERS ================= */
 .paper {
-  background-image: url("https://i0.wp.com/textures.world/wp-content/uploads/2018/10/2-Millimeter-Paper-Background-copy.jpg?ssl=1");
+  background-image: url("https://res.cloudinary.com/dg1pinjfp/image/upload/v1767129887/pink-cardboard-with-crack_t9kniq.jpg");
   background-size: 500px;
   background-position: center center;
   padding: 20px 100px;
-/*  min-width: 800px; */
-  
-  transform: rotateZ(-5deg);
-  box-shadow: 1px 15px 20px 0px rgba(0,0,0,0.5);
-  
   position: absolute;
+  border-radius: 8px;
+  transform: rotateZ(-5deg);
+  box-shadow: 1px 15px 20px rgba(0, 0, 0, 0.5);
+  
+  /* CRITICAL FOR MOBILE DRAG */
+  touch-action: none; 
+  cursor: grab;
+  
+  /* Spread them out slightly so they aren't all perfectly stacked */
+  transition: transform 0.1s;
 }
 
+.paper:active {
+  cursor: grabbing;
+}
+
+/* ================= HEART PAPER ================= */
 .paper.heart {
-  position: relative;
   width: 200px;
   height: 200px;
   padding: 0;
   border-radius: 50%;
 }
 
-.paper.image {
-  padding: 10px;
-}
-.paper.image p {
-  font-size: 30px;
-}
-
-img {
-  max-height: 200px;
-  width: 100%;
-  user-select: none;
-}
-
+/* Heart overlay */
 .paper.heart::after {
   content: "";
-  background-image: url('https://cdn.pixabay.com/photo/2016/03/31/19/25/cartoon-1294994__340.png');
-  width: 100%;
-  height: 100%;
   position: absolute;
-  top: 0;
-  left: 0;
+  inset: 0;
+  background-image: url("https://cdn.pixabay.com/photo/2016/03/31/19/25/cartoon-1294994__340.png");
   background-size: 150px;
-  background-position: center center;
+  background-position: center;
   background-repeat: no-repeat;
   opacity: 0.6;
 }
 
-p {
-  font-family: 'Zeyada';
-  font-size: 50px;
-  color: rgb(0,0,100);
-  opacity: 0.75;
+/* ================= IMAGE PAPERS ================= */
+.paper.image {
+  padding: 12px;
+}
+
+.paper.image p {
+  font-size: 34px;
+  margin: 6px 0;
+}
+
+/* ================= NEW YEAR HIGHLIGHT ================= */
+.paper.newyear {
+  transform: rotateZ(4deg);
+}
+
+/* ================= IMAGES ================= */
+img {
+  max-height: 200px;
+  width: 100%;
+  border-radius: 6px;
   user-select: none;
-  
-  // filter: drop-shadow(2px 1.5px 1px rgba(0,0,105,0.9));
+  pointer-events: none;
+}
+
+/* ================= TEXT ================= */
+p {
+  font-family: "Dancing Script", cursive;
+  font-size: 48px;
+  font-weight: 600;
+  color: rgb(11, 11, 87);
+  opacity: 0.85;
+  text-align: center;
+  user-select: none;
+}
+
+/* Emphasis text */
+.paper.red p {
+  font-weight: 700;
+}
+
+/* ================= BUTTERFLY ================= */
+#butterfly {
+  position: fixed;
+  /* Ensure these match the inline styles if possible */
+  width: 150px; 
+  height: 150px;
+  top: 30%;
+  left: -150px; /* Start off-screen */
+  z-index: 9999; /* Highest priority */
+  pointer-events: auto; /* Ensure clicks work */
+}
+/* ================= MOBILE ================= */
+@media (max-width: 600px) {
+  .paper {
+    padding: 16px 40px;
+    width: 70%; /* Prevent papers from being wider than screen */
+  }
+
+  p {
+    font-size: 38px;
+  }
+
+  .paper.image p {
+    font-size: 28px;
+  }
+
+  img {
+    max-height: 160px;
+  }
+
+  #butterfly {
+    width: 70px;
+    height: 70px;
+  }
 }
