@@ -67,6 +67,9 @@ body {
   font-size: 34px;
   margin: 6px 0;
 }
+img{
+  object-fit: cover;
+}
 
 /* ================= NEW YEAR HIGHLIGHT ================= */
 .paper.newyear {

@@ -16,10 +16,12 @@
 <body>
 
   <!-- ❤️ Heart Paper -->
-  <div class="paper heart"></div>
+  <a href="https://www.instagram.com/reel/DSH3WfWiPC6/" target="_blank">
+   <div class="paper heart"></div>
+  </a>
 
   <div class="paper image">
-    <p>Stepping into</p>
+    <p>Cheers to Stepping into</p>
     <p>2026 with You 🎉</p>
     <img src="images/1.png" />
   </div>
@@ -37,17 +39,17 @@
   </div>
 
   <div class="paper red">
-    <p>My Favorite</p>
+    <p>For My Favorite</p>
     <p>Person ❤️</p>
   </div>
 
   <div class="paper">
     <p>Here’s to</p>
-    <p>More memories 🥂</p>
+    <p>Many More memories 🥂</p>
   </div>
 
   <div class="paper newyear">
-    <p>Happy New Year 🎆</p>
+    <p>Happy New Year Cutu 🎆</p>
     <p>Drag the papers ✨</p>
   </div>
 
@@ -55,7 +57,7 @@
   <script src="https://unpkg.com/@lottiefiles/dotlottie-player@latest/dist/dotlottie-player.js"></script>
 
 
-<lottie-player
+<dotlottie-player
   id="butterfly"
   src="./images/butterfly.lottie"
   background="transparent"
@@ -63,46 +65,11 @@
   style="width: 100px; height: 100px;" 
   loop
   autoplay>
-</lottie-player>
+</dotlottie-player>
 
   <!-- Main JS -->
   <script src="./script.js"></script>
 
-  <!-- 🦋 Butterfly movement + click logic -->
-  <!-- <script>
-    const butterfly = document.getElementById("butterfly");
-    let direction = 1;
-
-    function flyButterfly() {
-      const screenWidth = window.innerWidth;
-      const randomTop = Math.random() * (window.innerHeight - 200) + 50;
-
-      direction *= -1;
-      butterfly.style.top = randomTop + "px";
-      butterfly.style.transition = "left 12s linear";
-
-      if (direction === 1) {
-        butterfly.style.left = "-120px";
-        butterfly.style.transform = "scaleX(1)";
-        requestAnimationFrame(() => {
-          butterfly.style.left = screenWidth + 120 + "px";
-        });
-      } else {
-        butterfly.style.left = screenWidth + 120 + "px";
-        butterfly.style.transform = "scaleX(-1)";
-        requestAnimationFrame(() => {
-          butterfly.style.left = "-120px";
-        });
-      }
-    }
-
-    flyButterfly();
-    setInterval(flyButterfly, 13000);
-
-    butterfly.addEventListener("click", () => {
-      alert("i love you 3000 ❤️");
-    });
-  </script> -->
 
 </body>
 </html>
